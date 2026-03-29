@@ -71,6 +71,14 @@ const base = import.meta.env.BASE_URL;
   </div>
 
   <Sidebar />
+
+  <!-- Image Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-overlay"></div>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+  </div>
 </BaseLayout>
 
 <style is:global>
@@ -173,4 +181,90 @@ const base = import.meta.env.BASE_URL;
   .prose blockquote strong {
     color: var(--accent);
   }
+
+  /* Image styles - clickable */
+  .prose img {
+    cursor: zoom-in;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .prose img:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Lightbox Styles */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+  .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .lightbox-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(4px);
+  }
+  .lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .lightbox-content img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    const overlay = document.querySelector('.lightbox-overlay');
+
+    // Open lightbox on image click
+    document.querySelectorAll('.prose img').forEach(img => {
+      img.addEventListener('click', (e) => {
+        const target = e.target as HTMLImageElement;
+        lightboxImg.src = target.src;
+        lightboxImg.alt = target.alt;
+        lightbox?.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Close lightbox
+    function closeLightbox() {
+      lightbox?.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close on overlay or image click
+    overlay?.addEventListener('click', closeLightbox);
+    lightboxImg?.addEventListener('click', closeLightbox);
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox?.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  });
+</script>

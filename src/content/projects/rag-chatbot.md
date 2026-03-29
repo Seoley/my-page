@@ -24,6 +24,12 @@ order: 1
 - **의도 분류:** 프로그램 추천 / 정보 조회 / 가이드 / FAQ 라우팅
 - **환경 맞춤 배포:** CPU(BM25+Embedding), GPU(로컬 LLM), Cloud(API) 3모드
 
+## 시스템 아키텍처
+
+![RAG 기반 챗봇 시스템 아키텍처](/my-page/images/rag_architecture.png)
+
+React 기반 프론트엔드에서 사용자 질의를 받아 Spring Boot API를 거쳐 FastAPI AI 서비스로 전달됩니다. AI 서비스에서는 의도 분류 후 BM25 + FAISS 하이브리드 검색을 수행하고, 고객 환경에 따라 CPU/GPU/Cloud 모드 중 적합한 LLM을 선택하여 응답을 생성합니다.
+
 ## LLM 벤치마크 결과 (4B 미만 로컬 모델)
 
 | 모델 | Faithfulness | Relevance | 응답시간 | 성공률 | 종합점수 |
