@@ -2,8 +2,7 @@
 title: "RAG 기반 챗봇 솔루션"
 description: "기업 맞춤형 RAG 기반 챗봇 솔루션. 관공서 폐쇄망 실서비스 운영 중."
 role: "PM / AI 개발"
-team: "4명 (PM, Backend, Frontend, AI)"
-result: "관공서 폐쇄망 실서비스 운영"
+result: "챗봇 솔루션 프로토타입 구축. 관공서 폐쇄망 실서비스 운영"
 tags: ["FastAPI", "LangChain", "Sentence-Transformers", "FAISS", "BM25", "Docker"]
 order: 1
 ---
@@ -11,6 +10,13 @@ order: 1
 ## 프로젝트 소개
 
 기업 맞춤형 RAG 기반 챗봇 솔루션 설계 및 개발. CPU/GPU/클라우드 환경별 최적화된 RAG 엔진을 제공하며, 실제 관공서 환경(폐쇄망)에 배포하여 운영 중입니다.
+
+## 담당 업무
+
+- **RAG 아키텍처 설계**: BM25 + Vector 하이브리드 검색 구조 설계
+- **LLM 벤치마크**: Claude, GPT, 로컬 LLM 성능 비교 테스트 수행
+- **의도 분류기 개발**: 사용자 질의 유형별 응답 경로 라우팅 설계
+- **환경별 배포**: CPU/GPU/Cloud 3모드 배포 파이프라인 구축
 
 ## LLM 개발 철학 적용
 
