@@ -30,7 +30,7 @@ jobs:
         run: npm install
 
       - name: Clean docs folder
-        run: rm -rf docs/*
+        run: rm -rf docs/* || true
 
       - name: Build with Astro
         run: npm run build
