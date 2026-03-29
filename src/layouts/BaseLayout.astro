@@ -21,10 +21,10 @@ const base = import.meta.env.BASE_URL;
 </head>
 <body class="min-h-screen">
   <div class="relative min-h-screen max-w-8xl mx-auto">
-    <main class="relative z-10 min-h-screen flex flex-col lg:flex-row">
+    <main class="relative z-10 min-h-screen lg:grid lg:grid-cols-[80px_1fr]">
 
       <!-- Desktop Navigation (Left Sidebar) -->
-      <div class="hidden lg:block lg:w-20 border-r border-[var(--border)] fixed h-screen">
+      <div class="hidden lg:flex w-[80px] min-w-[80px] max-w-[80px] border-r border-[var(--border)] sticky top-0 h-screen">
         <nav class="w-full h-full flex flex-col gap-6 items-center justify-center">
           <a
             href={base}
@@ -69,7 +69,7 @@ const base = import.meta.env.BASE_URL;
       </div>
 
       <!-- Main Content Area -->
-      <div class="flex flex-1 lg:ml-20 overflow-y-auto hide-scrollbar flex-col lg:flex-row pb-20 lg:pb-0">
+      <div class="flex overflow-y-auto hide-scrollbar flex-col lg:flex-row pb-20 lg:pb-0">
         <slot />
       </div>
 

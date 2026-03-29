@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={`${project.data.title} | 이설의`} description={project.data.description}>
-  <div class="w-full lg:w-[calc(100%-340px)] p-6 lg:p-8">
+  <div class="w-full lg:flex-1 lg:max-w-[calc(100%-340px)] p-6 lg:p-8">
     <!-- Back Button -->
     <a href={`${base}/projects`} class="inline-flex items-center gap-2 text-muted hover:text-[var(--accent)] mb-8 transition-colors">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -109,5 +109,68 @@ const base = import.meta.env.BASE_URL;
     padding: 0.125rem 0.375rem;
     border-radius: 0.25rem;
     font-size: 0.875rem;
+  }
+
+  /* Table Styles */
+  .prose table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background-color: var(--card-bg);
+  }
+  .prose thead {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05));
+  }
+  .prose th {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+    border-bottom: 2px solid var(--border);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .prose td {
+    padding: 0.875rem 1.25rem;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .prose tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .prose tbody tr {
+    transition: background-color 0.15s ease;
+  }
+  .prose tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.08);
+  }
+  /* Highlight best result */
+  .prose td strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Blockquote Styles */
+  .prose blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.08), transparent);
+    border-radius: 0 0.75rem 0.75rem 0;
+  }
+  .prose blockquote p {
+    margin: 0;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .prose blockquote strong {
+    color: var(--accent);
   }
 </style>
