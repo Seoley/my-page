@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+---
+
+<BaseLayout title="About | 이설의" description="AI 엔지니어 이설의 소개">
+  <!-- Main Content -->
+  <div class="w-full lg:w-[calc(100%-340px)] p-6 lg:p-8">
+    <!-- Hero Section -->
+    <section class="lg:min-h-[40vh] flex flex-col justify-end mb-12">
+      <h1 class="text-3xl lg:text-4xl font-bold mb-4">About Me</h1>
+      <p class="text-lg text-muted">AI 엔지니어, 이설의입니다</p>
+    </section>
+
+    <!-- Work Experience -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-6 pb-2 border-b-2 border-[var(--accent)] inline-block">Work Experience</h2>
+
+      <div class="card p-5 mb-4">
+        <h3 class="font-semibold mb-1">(주)지아이랩</h3>
+        <p class="text-sm text-muted mb-4">책임연구원 | 2022.01 - 2026.04</p>
+        <ul class="space-y-2 text-sm text-muted">
+          <li class="flex gap-2">
+            <span class="text-[var(--accent)]">•</span>
+            RAG 기반 챗봇 솔루션 설계 및 관공서 실서비스 배포
+          </li>
+          <li class="flex gap-2">
+            <span class="text-[var(--accent)]">•</span>
+            AI 개발팀 리드 및 프로젝트 PM
+          </li>
+          <li class="flex gap-2">
+            <span class="text-[var(--accent)]">•</span>
+            하수처리 공정 지능화 시스템 PM 및 AI 개발
+          </li>
+          <li class="flex gap-2">
+            <span class="text-[var(--accent)]">•</span>
+            LLM 성능 벤치마크 및 최적 모델 선정
+          </li>
+          <li class="flex gap-2">
+            <span class="text-[var(--accent)]">•</span>
+            Claude Code SKILL 기반 개인 개발 자동화 프로세스 구축
+          </li>
+          <li class="flex gap-2">
+            <span class="text-[var(--accent)]">•</span>
+            AI 시험인증 품질 확보 (정확도 90.9% 달성)
+          </li>
+        </ul>
+      </div>
+
+      <div class="card p-5">
+        <h3 class="font-semibold mb-1">(주)유오케이</h3>
+        <p class="text-sm text-muted mb-4">연구원 | 2020.06 - 2021.12</p>
+        <ul class="space-y-2 text-sm text-muted">
+          <li class="flex gap-2">
+            <span class="text-[var(--accent)]">•</span>
+            R&D 연구과제 AI 모델 개발 실무
+          </li>
+          <li class="flex gap-2">
+            <span class="text-[var(--accent)]">•</span>
+            ML 파이프라인 구축 및 RESTful API 배포
+          </li>
+          <li class="flex gap-2">
+            <span class="text-[var(--accent)]">•</span>
+            AI 서비스 배포 시스템 설계 및 운영
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-6 pb-2 border-b-2 border-[var(--accent)] inline-block">Education</h2>
+
+      <div class="card p-5 mb-4">
+        <h3 class="font-semibold mb-1">광주과학기술원 (GIST)</h3>
+        <p class="text-sm text-muted">전기전자컴퓨터공학부 | 2013.03 - 2020.02</p>
+      </div>
+
+      <div class="card p-5">
+        <h3 class="font-semibold mb-1">충남과학고등학교</h3>
+        <p class="text-sm text-muted">2011.03 - 2013.02</p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-6 pb-2 border-b-2 border-[var(--accent)] inline-block">Skills</h2>
+
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="tag">Python</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">Docker</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">PyTorch</span>
+      </div>
+
+      <ul class="space-y-2 text-sm text-muted">
+        <li class="flex gap-2">
+          <span class="text-[var(--accent)]">•</span>
+          RAG 아키텍처 설계 및 구축 (BM25 + FAISS 하이브리드 검색)
+        </li>
+        <li class="flex gap-2">
+          <span class="text-[var(--accent)]">•</span>
+          LLM 벤치마크 및 프롬프트 엔지니어링
+        </li>
+        <li class="flex gap-2">
+          <span class="text-[var(--accent)]">•</span>
+          Claude Code 활용 바이브코딩
+        </li>
+        <li class="flex gap-2">
+          <span class="text-[var(--accent)]">•</span>
+          Docker 기반 CPU/GPU/Cloud 환경별 배포
+        </li>
+        <li class="flex gap-2">
+          <span class="text-[var(--accent)]">•</span>
+          GitHub Issue/PR 기반 체계적 협업 관리
+        </li>
+      </ul>
+    </section>
+
+    <!-- External Activities -->
+    <section>
+      <h2 class="text-xl font-bold mb-6 pb-2 border-b-2 border-[var(--accent)] inline-block">External Activities</h2>
+
+      <div class="space-y-4">
+        <div class="py-4 border-b border-[var(--border)]">
+          <h3 class="font-semibold mb-1">스마트미디어학회 논문 작성</h3>
+          <p class="text-sm text-muted">물리치료 융합을 위한 새로운 방법론 (2025.10 - 2025.12)</p>
+        </div>
+        <div class="py-4">
+          <h3 class="font-semibold mb-1">인공지능사관학교 프로젝트 멘토링</h3>
+          <p class="text-sm text-muted">2024.04 - 2024.06, 2025.09 - 2025.12</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Sidebar -->
+  <Sidebar />
+</BaseLayout>
