@@ -1,10 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Sidebar from '../components/Sidebar.astro';
+
+const base = import.meta.env.BASE_URL;
+const projects = await getCollection('projects');
+const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title="Projects | 이설의" description="AI 엔지니어 이설의의 프로젝트">
-  <!-- Main Content -->
   <div class="w-full lg:w-[calc(100%-340px)] p-6 lg:p-8">
     <!-- Hero Section -->
     <section class="lg:min-h-[40vh] flex flex-col justify-end mb-12">
@@ -12,157 +16,35 @@ import Sidebar from '../components/Sidebar.astro';
       <p class="text-lg text-muted">주요 프로젝트 소개</p>
     </section>
 
-    <!-- Project 1: RAG 챗봇 -->
-    <section class="mb-8">
-      <div class="card p-6">
-        <h3 class="text-xl font-semibold mb-4">RAG 기반 챗봇 솔루션</h3>
+    <!-- Projects List -->
+    <div class="space-y-6">
+      {sortedProjects.map((project) => (
+        <a href={`${base}/projects/${project.slug}`} class="card p-6 block hover:border-[var(--accent)] transition-colors group">
+          <h3 class="text-xl font-semibold mb-2 group-hover:text-[var(--accent)] transition-colors">
+            {project.data.title}
+          </h3>
+          <p class="text-sm text-muted mb-4">{project.data.description}</p>
 
-        <table class="info-table mb-4">
-          <tr>
-            <th>역할</th>
-            <td>PM / AI 개발</td>
-          </tr>
-          <tr>
-            <th>팀 구성</th>
-            <td>4명 (PM, Backend, Frontend, AI)</td>
-          </tr>
-          <tr>
-            <th>성과</th>
-            <td>관공서 폐쇄망 실서비스 운영</td>
-          </tr>
-        </table>
+          {(project.data.role || project.data.result) && (
+            <div class="flex flex-wrap gap-4 text-sm text-muted mb-4">
+              {project.data.role && (
+                <span><strong>역할:</strong> {project.data.role}</span>
+              )}
+              {project.data.result && (
+                <span><strong>성과:</strong> {project.data.result}</span>
+              )}
+            </div>
+          )}
 
-        <h4 class="font-semibold mb-2 mt-6">프로젝트 소개</h4>
-        <p class="text-sm text-muted mb-4">
-          기업 맞춤형 RAG 기반 챗봇 솔루션 설계 및 개발.
-          CPU/GPU/클라우드 환경별 최적화된 RAG 엔진을 제공하며,
-          실제 관공서 환경(폐쇄망)에 배포하여 운영 중입니다.
-        </p>
-
-        <h4 class="font-semibold mb-2">핵심 구현</h4>
-        <ul class="space-y-2 text-sm text-muted mb-4">
-          <li class="flex gap-2">
-            <span class="text-[var(--accent)]">•</span>
-            <span><strong>하이브리드 검색:</strong> BM25 + FAISS 결합, 한국어 특화(Kiwipiepy 형태소 분석)</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="text-[var(--accent)]">•</span>
-            <span><strong>의도 분류:</strong> 프로그램 추천 / 정보 조회 / 가이드 / FAQ 라우팅</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="text-[var(--accent)]">•</span>
-            <span><strong>환경 맞춤 배포:</strong> CPU(BM25+Embedding), GPU(로컬 LLM), Cloud(API) 3모드</span>
-          </li>
-        </ul>
-
-        <h4 class="font-semibold mb-3">기술 스택</h4>
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">FastAPI</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">Sentence-Transformers</span>
-          <span class="tag">FAISS</span>
-          <span class="tag">BM25</span>
-          <span class="tag">Docker</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Project 2: 하수처리 -->
-    <section class="mb-8">
-      <div class="card p-6">
-        <h3 class="text-xl font-semibold mb-4">하수처리 공정 지능화 시스템</h3>
-
-        <table class="info-table mb-4">
-          <tr>
-            <th>역할</th>
-            <td>PM / AI 개발</td>
-          </tr>
-          <tr>
-            <th>규모</th>
-            <td>27개 API 엔드포인트</td>
-          </tr>
-        </table>
-
-        <h4 class="font-semibold mb-2 mt-6">프로젝트 소개</h4>
-        <p class="text-sm text-muted mb-4">
-          A2O 하수처리 공정 AI 예측 및 제어인자 최적화 시스템 개발.
-          도메인 지식 제로에서 바이브코딩 활용, 1개월 내 27개 API 엔드포인트 완성.
-        </p>
-
-        <h4 class="font-semibold mb-2">핵심 구현</h4>
-        <ul class="space-y-2 text-sm text-muted mb-4">
-          <li class="flex gap-2">
-            <span class="text-[var(--accent)]">•</span>
-            <span><strong>8단계 예측 파이프라인:</strong> 유입수 → 방류수 순차 예측</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="text-[var(--accent)]">•</span>
-            <span><strong>이상탐지:</strong> 공정 데이터 모니터링 및 알림</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="text-[var(--accent)]">•</span>
-            <span><strong>제어인자 최적화:</strong> 송풍량/탄소원/응집제 최적값 도출</span>
-          </li>
-        </ul>
-
-        <h4 class="font-semibold mb-3">기술 스택</h4>
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">FastAPI</span>
-          <span class="tag">PyTorch</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">Pydantic</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Project 3: 육아상담 챗봇 -->
-    <section class="mb-8">
-      <div class="card p-6">
-        <h3 class="text-xl font-semibold mb-4">육아상담 AI 챗봇 서비스</h3>
-
-        <table class="info-table mb-4">
-          <tr>
-            <th>대상</th>
-            <td>0~36개월 영유아 부모</td>
-          </tr>
-          <tr>
-            <th>성과</th>
-            <td>AI 시험인증 정확도 90.9% 달성</td>
-          </tr>
-        </table>
-
-        <h4 class="font-semibold mb-2 mt-6">프로젝트 소개</h4>
-        <p class="text-sm text-muted mb-4">
-          0~36개월 영유아 부모 대상 RAG 기반 육아상담 챗봇 서비스 개발.
-          생성형 AI 및 BERT 활용 RAG 구축, NHN 클라우드 배포.
-        </p>
-
-        <h4 class="font-semibold mb-2">핵심 구현</h4>
-        <ul class="space-y-2 text-sm text-muted mb-4">
-          <li class="flex gap-2">
-            <span class="text-[var(--accent)]">•</span>
-            <span><strong>RAG 시스템:</strong> 생성형 AI 및 BERT 활용 검색 증강 생성</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="text-[var(--accent)]">•</span>
-            <span><strong>클라우드 배포:</strong> NHN 클라우드 환경 배포</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="text-[var(--accent)]">•</span>
-            <span><strong>품질 인증:</strong> 와이즈스톤 AI 시험인증 통과</span>
-          </li>
-        </ul>
-
-        <h4 class="font-semibold mb-3">기술 스택</h4>
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">RAG</span>
-          <span class="tag">BERT</span>
-          <span class="tag">NHN Cloud</span>
-        </div>
-      </div>
-    </section>
+          <div class="flex flex-wrap gap-2">
+            {project.data.tags.map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
   </div>
 
-  <!-- Sidebar -->
   <Sidebar />
 </BaseLayout>
