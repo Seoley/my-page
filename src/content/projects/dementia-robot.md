@@ -3,7 +3,7 @@ title: "치매환자 보조용 로봇 소프트웨어"
 description: "Jetson Nano 기반 대화형 AI 로봇. 회사 최초 임베디드 SW 개발 프로세스 수립."
 role: "PM / AI 개발"
 result: "치매환자 보조용 대화형 AI 시스템 구축. 시험인증 정확도 90.1%. 반응속도 10x 개선"
-tags: ["PyTorch", "RoBERTa", "Django", "MLflow", "Jetson Nano", "Docker"]
+tags: ["PyTorch", "Django", "MLflow", "Jetson Nano"]
 order: 4
 ---
 

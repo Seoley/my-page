@@ -3,7 +3,7 @@ title: "하수처리 공정 지능화 시스템"
 description: "A2O 하수처리 공정 AI 예측 및 제어인자 최적화 시스템. 27개 API 엔드포인트."
 role: "PM / AI 개발"
 result: "A2O 하수처리 공정 AI 모델 9종. 27개 API 엔드포인트 구현"
-tags: ["FastAPI", "PyTorch", "Scikit-learn", "Pydantic", "Claude Code"]
+tags: ["Claude Code", "FastAPI", "PyTorch"]
 order: 2
 ---
 
