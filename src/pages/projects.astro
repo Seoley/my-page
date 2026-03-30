@@ -36,6 +36,9 @@ const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
             </div>
           )}
 
+          {project.data.period && (
+            <p class="text-xs text-muted mb-2">{project.data.period}</p>
+          )}
           <div class="flex flex-wrap gap-2">
             {project.data.tags.map((tag: string) => (
               <span class="tag">{tag}</span>

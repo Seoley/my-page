@@ -44,6 +44,9 @@ const recentProjects = allProjects.sort((a, b) => a.data.order - b.data.order).s
               {project.data.title}
             </h3>
             <p class="text-sm text-muted mb-3">{project.data.description}</p>
+            {project.data.period && (
+              <p class="text-xs text-muted mb-2">{project.data.period}</p>
+            )}
             <div class="flex flex-wrap gap-2">
               {project.data.tags.slice(0, 4).map((tag: string) => (
                 <span class="tag">{tag}</span>

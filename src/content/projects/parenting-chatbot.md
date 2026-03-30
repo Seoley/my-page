@@ -1,6 +1,7 @@
 ---
 title: "육아상담 AI 챗봇 서비스"
 description: "0~36개월 영유아 부모 대상 RAG 기반 육아상담 챗봇. 상담내역 관리 플랫폼 연동."
+period: "2023.04 ~ 2023.12"
 role: "PM / AI 개발"
 result: "육아상담 AI 챗봇 플랫폼 구축. AI 시험인증 정확도 90.9% 달성"
 tags: ["RAG", "Sentence-BERT", "Django", "NHN Cloud"]

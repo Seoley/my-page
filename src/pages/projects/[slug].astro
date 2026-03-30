@@ -33,8 +33,14 @@ const base = import.meta.env.BASE_URL;
       <p class="text-lg text-muted mb-6">{project.data.description}</p>
 
       <!-- Project Info -->
-      {(project.data.role || project.data.team || project.data.result) && (
+      {(project.data.period || project.data.role || project.data.team || project.data.result) && (
         <table class="info-table mb-6">
+          {project.data.period && (
+            <tr>
+              <th>기간</th>
+              <td>{project.data.period}</td>
+            </tr>
+          )}
           {project.data.role && (
             <tr>
               <th>역할</th>

@@ -1,6 +1,7 @@
 ---
 title: "RAG 기반 챗봇 솔루션"
 description: "기업 맞춤형 RAG 기반 챗봇 솔루션. 관공서 폐쇄망 실서비스 운영 중."
+period: "2024.12 ~ 2025.03"
 role: "PM / AI 개발"
 result: "챗봇 솔루션 프로토타입 구축. 관공서 폐쇄망 실서비스 운영"
 tags: ["FastAPI", "LangChain", "Sentence-Transformers", "Docker"]

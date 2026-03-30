@@ -1,6 +1,7 @@
 ---
 title: "하수처리 공정 지능화 시스템"
-description: "A2O 하수처리 공정 AI 예측 및 제어인자 최적화 시스템. 27개 API 엔드포인트."
+description: "A2O 하수처리 공정 AI 예측 및 제어인자 최적화 시스템. 바이브 코딩을 활용한 27개 API 엔드포인트 단기간 구축."
+period: "2024.12 ~ 2025.03"
 role: "PM / AI 개발"
 result: "A2O 하수처리 공정 AI 모델 9종. 27개 API 엔드포인트 구현"
 tags: ["Claude Code", "FastAPI", "PyTorch"]
