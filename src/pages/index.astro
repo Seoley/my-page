@@ -40,13 +40,15 @@ const recentProjects = allProjects.sort((a, b) => a.data.order - b.data.order).s
       <div class="space-y-4">
         {recentProjects.map((project) => (
           <a href={`${base}/projects/${project.slug}`} class="card p-5 block hover:border-[var(--accent)] transition-colors group">
-            <h3 class="font-semibold mb-2 group-hover:text-[var(--accent)] transition-colors">
-              {project.data.title}
-            </h3>
+            <div class="flex items-center gap-3 mb-2">
+              <h3 class="font-semibold group-hover:text-[var(--accent)] transition-colors">
+                {project.data.title}
+              </h3>
+              {project.data.period && (
+                <span class="text-xs text-muted">{project.data.period}</span>
+              )}
+            </div>
             <p class="text-sm text-muted mb-3">{project.data.description}</p>
-            {project.data.period && (
-              <p class="text-xs text-muted mb-2">{project.data.period}</p>
-            )}
             <div class="flex flex-wrap gap-2">
               {project.data.tags.slice(0, 4).map((tag: string) => (
                 <span class="tag">{tag}</span>
